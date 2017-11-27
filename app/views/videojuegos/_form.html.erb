@@ -1,0 +1,45 @@
+<%= form_for(@videojuego, html: {multipart: true}) do |f| %>
+  <% if @videojuego.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@videojuego.errors.count, "error") %> prohibited this videojuego from being saved:</h2>
+
+      <ul>
+      <% @videojuego.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="container">
+<form action="/action_page.php">
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br>
+    <%= f.text_field :precio %>
+  </div>
+  <div class="field">
+    <%= f.label :developer %><br>
+    <%= f.text_field :developer %>
+  </div>
+  <div class="field">
+    <%= f.label :ESRB %><br>
+    <%= f.text_field :ESRB %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :photo%>
+    <%= f.file_field :photo%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</form> 
+</div>
+<% end %>

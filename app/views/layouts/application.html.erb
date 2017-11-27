@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+
+  
+<nav class="navbar navbar-inverse navbar-fixed-top">
+   <div class="container-fluid">
+     <div class="navbar_header">
+       <a class="navbar-brand"  href="/">Inicio</a>
+     </div>
+     <ul class="nav navbar-nav navbar-right">
+        <% if usuario_signed_in? %>
+          <li><%= link_to 'Salir', destroy_usuario_session_path, method: :delete  %></li>
+       <% else %>
+          <li><%= link_to('Iniciar', new_usuario_session_path)%></li>
+          <li><%= link_to 'Registrarme', new_usuario_registration_path %></li>
+       <%end%>
+     </ul>
+   </div>
+  </nav>
+ 
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+  
+<%= yield %>
+
+</body>
+</html>

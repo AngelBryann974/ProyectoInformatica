@@ -1,0 +1,107 @@
+
+
+<style>
+.w3-note{background-color:#ffffcc;border-left:6px solid #ffeb3b}
+</style>
+
+<% if usuario_signed_in? %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="col-sm-9"> 
+<div class="panel panel-default">
+<div class="panel-heading">Características</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <td><%= @videojuego.nombre %></td>
+    </tr> 
+    <tr>
+      <th>Descripción</th>
+      <td> <%= @videojuego.descripcion %></td>
+    </tr>
+    <tr>
+      <th>Precio</th>
+      <td><%= @videojuego.precio %></td>
+    </tr> 
+    <tr></tr>
+      <th>Developer</th>
+      <td><%= @videojuego.developer %></td>
+    </tr>
+    <tr>
+      <th>ESRB</th>
+      <td><%= @videojuego.ESRB %></td>
+    </tr>
+  </thead>
+</table>
+ </div>
+</div>
+
+
+<div class="col-sm-9">
+  
+
+<div class="w3-note">
+  <p>Tu pago ha sido realizado correctamente. Imprime el esta pantalla con el codigo y
+    paga en el oxxo para que tu código sea válido.
+  </p>
+ <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">CODIGO: <td><%= @videojuego.nombre %></td>312  </div>
+        <div class="panel-body"><a><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/EAN13.svg/1200px-EAN13.svg.png" class="img-responsive" width="330" height="250" alt="Image"></a></div>
+        <div class="panel-footer">Precio: <td><%= @videojuego.precio %></td></div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+<div class="col-sm-9">
+  
+<%= link_to 'Regresar', videojuegos_path, :class=>"btn btn-default" %>
+  
+</div>  
+
+      <%else%>
+
+<p id="notice"><%= notice %></p>
+
+<div class="col-sm-9"> 
+<div class="panel panel-default">
+<div class="panel-heading">Características</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <td><%= @videojuego.nombre %></td>
+    </tr> 
+    <tr>
+      <th>Descripción</th>
+      <td> <%= @videojuego.descripcion %></td>
+    </tr>
+    <tr>
+      <th>Precio</th>
+      <td><%= @videojuego.precio %></td>
+    </tr> 
+    <tr></tr>
+      <th>Developer</th>
+      <td><%= @videojuego.developer %></td>
+    </tr>
+    <tr>
+      <th>ESRB</th>
+      <td><%= @videojuego.ESRB %></td>
+    </tr>
+  </thead>
+</table>
+ </div>
+</div>
+
+<div class="col-sm-9">
+  
+<%= link_to 'Editar', edit_videojuego_path(@videojuego), :class=>"btn btn-default" %> |
+<%= link_to 'Regresar', videojuegos_path, :class=>"btn btn-default" %>
+  
+</div>  
+<%end%>

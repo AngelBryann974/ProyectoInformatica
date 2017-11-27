@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Videojuego:</strong>
+  <%= @videojuego_admin.videojuego_id %>
+  <%= @videojuego_admin.videojuego.nombre%>
+
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @videojuego_admin.admin_id %>
+  <%= @videojuego_admin.admin.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_videojuego_admin_path(@videojuego_admin) %> |
+<%= link_to 'Back', videojuego_admins_path %>

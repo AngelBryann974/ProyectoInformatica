@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="col-sm-9"> 
+<div class="panel panel-default">
+<div class="panel-heading">Información</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <td><%= @admin.nombre %></td>
+    </tr> 
+    <tr>
+      <th>Apellido Paterno</th>
+      <td> <%= @admin.apellido_paterno %></td>
+    </tr>
+    <tr>
+      <th>Apellido Materno</th>
+      <td><%= @admin.apellido_materno %></td>
+    </tr> 
+    <tr></tr>
+      <th>Dirección</th>
+      <td> <%= @admin.direccion %></td>
+    </tr>
+    <tr>
+      <th>Teléfono</th>
+      <td><%= @admin.telefono %></td>
+    </tr>
+  </thead>
+</table>
+ </div>
+</div>
+
+
+<div class="col-sm-9">
+
+<%= link_to 'Editar', edit_admin_path(@admin), :class=>"btn btn-default" %> 
+<%= link_to 'Regresar', admins_path, :class=>"btn btn-default" %>
+  
+</div> 

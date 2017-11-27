@@ -1,0 +1,25 @@
+<%= form_for(@videojuego_admin) do |f| %>
+  <% if @videojuego_admin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@videojuego_admin.errors.count, "error") %> prohibited this videojuego_admin from being saved:</h2>
+
+      <ul>
+      <% @videojuego_admin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :videojuego_id %><br>
+  <%= f.collection_select :videojuego_id, Videojuego.all, :id, :nombre, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_id %><br>
+    <%= f.collection_select :admin_id, Admin.all, :id, :nombre, prompt: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

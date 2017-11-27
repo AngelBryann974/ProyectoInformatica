@@ -1,0 +1,102 @@
+<div class="padding">
+<div class="col-sm-9">
+<h1>Games FCA</h1>
+<hr>
+</div>
+</div>
+
+<style>
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 15px;
+}
+  
+  .padding{
+    
+    padding-top: 0px;
+    
+  }  
+  
+  h1{
+    font-family: 'Vollkorn SC', serif;
+  }
+</style>
+<% if usuario_signed_in? %>
+<body>
+
+  
+<div class="col-sm-9"> 
+<div class="panel panel-default">
+<div class="panel-heading">Lista de Videojuegos</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Developer</th>
+      <th>ESRB</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videojuegos.each do |videojuego| %>
+      <tr>
+        <td><%= videojuego.nombre %></td>
+        <td><%= videojuego.precio %></td>
+        <td><%= videojuego.developer %></td>
+        <td><%= videojuego.ESRB %></td>
+        <td><%= link_to 'Comprar', videojuego, :class=>"btn btn-default" %></td>  
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+ </div>
+</div>
+<br>
+<div class="column">
+<%= link_to 'Regresar', home_index_path, :class=>"btn btn-default" %>
+  </div>
+<% else %>  
+  
+<body>
+
+
+<div class="col-sm-9"> 
+<div class="panel panel-default">
+<div class="panel-heading">Lista de Videojuegos</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Developer</th>
+      <th>ESRB</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videojuegos.each do |videojuego| %>
+      <tr>
+        <td><%= videojuego.nombre %></td>
+        <td><%= videojuego.precio %></td>
+        <td><%= videojuego.developer %></td>
+        <td><%= videojuego.ESRB %></td>
+        <td><%= link_to 'Mostrar', videojuego, :class=>"btn btn-default" %></td>
+        <td><%= link_to 'Editar', edit_videojuego_path(videojuego),:class=>"btn btn-default" %></td>
+        <td><%= link_to 'Eliminar', videojuego, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-default" %></td>  
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+ </div>
+</div>
+<br>
+<div class="column">
+<%= link_to 'Agregar Videojuego', new_videojuego_path, :class=>"btn btn-default" %>
+  </div>
+  
+  <% end %>  
